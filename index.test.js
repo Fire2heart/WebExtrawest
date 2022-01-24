@@ -81,7 +81,7 @@ describe('getOperands', function () {
 })
 
 import { getTime } from './index'
-describe('getOperands', function () {
+describe('getTime', function () {
     test('should return "09:00" when passed "Breakfast at 09:00"', function () {
         const result = getTime('Breakfast at 09:00')
         expect(result).toBe('09:00')
@@ -95,5 +95,90 @@ describe('getOperands', function () {
     test('should return "09:59" when passed "Breakfast at 09:59, Dinner at 21:00"', function () {
         const result = getTime('Breakfast at 09:59, Dinner at 21:00')
         expect(result).toBe('09:59')
+    })
+})
+
+import { isPalindrome } from './index'
+describe('isPalindrome', function () {
+    test('should return true when passed "Eva, can I see bees in a cave?"', function () {
+        const result = isPalindrome('Eva, can I see bees in a cave?')
+        expect(result).toBe(true)
+    })
+
+    test('should return false when passed "race a car"', function () {
+        const result = isPalindrome('race a car')
+        expect(result).toBe(false)
+    })
+
+    test('should return true when passed "Was it a cat I saw?"', function () {
+        const result = isPalindrome('Was it a cat I saw?')
+        expect(result).toBe(true)
+    })
+})
+
+import { swapCase } from './index'
+describe('swapCase', function () {
+    test('should return AbC when passed "aBc"', function () {
+        const result = swapCase('aBc')
+        expect(result).toBe('AbC')
+    })
+
+    test('should return gOOd when passed "GooD"', function () {
+        const result = swapCase('GooD')
+        expect(result).toBe('gOOd')
+    })
+
+    test('should return HELLO when passed "hello"', function () {
+        const result = swapCase('hello')
+        expect(result).toBe('HELLO')
+    })
+})
+
+import { countOccurrences } from './index'
+describe('countOccurrences', function () {
+    test('should return 2 when passed "ability", "i"', function () {
+        const result = countOccurrences('ability', 'i')
+        expect(result).toBe(2)
+    })
+
+    test('should return 1 when passed "ability", "i"', function () {
+        const result = countOccurrences('abc', 'a')
+        expect(result).toBe(1)
+    })
+
+    test('should return 1 when passed "ability", "i"', function () {
+        const result = countOccurrences('ABC', 'a')
+        expect(result).toBe(1)
+    })
+})
+
+import { vowelCount } from './index'
+describe('vowelCount', function () {
+    test('should return 5 when passed "abracadabra"', function () {
+        const result = vowelCount('abracadabra')
+        expect(result).toBe(5)
+    })
+
+    test('should return 2 when passed "letter"', function () {
+        const result = vowelCount('letter')
+        expect(result).toBe(2)
+    })
+
+    test('should return 1 when passed "toy"', function () {
+        const result = vowelCount('toy')
+        expect(result).toBe(1)
+    })
+
+    test('should return 0 when passed "555"', function () {
+        const result = vowelCount('555')
+        expect(result).toBe(0)
+    })
+})
+
+import { alphabetPosition } from './index'
+describe('alphabetPosition', function () {
+    test('should return 5 when passed "The sunset sets at twelve o`clock."', function () {
+        const result = alphabetPosition('The sunset sets at twelve o`clock.')
+        expect(result).toBe("20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11")
     })
 })

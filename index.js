@@ -1,4 +1,6 @@
 export function basicOp(operation, a, b,) {
+    //let calc = "a + operation + b"
+    //return eval(calc)
     // if (operation == '+') { return a + b }
     // else if (operation == '-') { return a - b }
     // else if (operation == '*') { return a * b }
@@ -25,12 +27,6 @@ export function basicOp(operation, a, b,) {
     return result
 }
 
-// console.log(basicOp('+', 4, 7)) // return 11
-// console.log(basicOp('-', 15, 18)) // return -3
-// console.log(basicOp('*', 5, 5)) // return 25
-// console.log(basicOp('/', 49, 7)) // return 7
-// console.log(basicOp('something else', 45, 45)) // return 0
-
 export function StringMerge(first, second, letter) {
     let id = first.indexOf(letter)
     first = first.slice(0, id)
@@ -39,11 +35,6 @@ export function StringMerge(first, second, letter) {
 
     return first + letter + second
 }
-
-// console.log(StringMerge("hello", "world", "l"))   //"held"
-// console.log(StringMerge("coding", "anywhere", "n"))   //"codinywhere"
-// console.log(StringMerge("jason", "samson", "s"))      //"jasamson"
-// console.log(StringMerge("wonderful", "people", "e"))  //"wondeople"
 
 export function createPhoneNumber(nums) {
     let str_nums = nums.map(String)
@@ -54,8 +45,6 @@ export function createPhoneNumber(nums) {
     return '(' + beg.join('') + ')' + ' ' + mid.join('') + '-' + end.join('')
 }
 
-//console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])) // "(123) 456-7890"
-
 export function getOperands(expression) {
     let space = ' '
     let arr = expression.split(space)
@@ -65,16 +54,55 @@ export function getOperands(expression) {
     return 'a: ' + a + ',' + ' b: ' + b
 }
 
-// console.log(getOperands('1 + 2'))             // 'a: 1, b: 2';
-// console.log(getOperands('1.2 * -3.4'))      // 'a: 1.2, b: -3.4';
-// console.log(getOperands('1 - 2'))          // 'a: 1, b: 2';
-// console.log(getOperands('1 - -2'))          //'a: 1, b: -2';
-
 export function getTime(str) {
     let result = str.match(/(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]/g)
     return result[0]
 }
 
-// console.log(getTime('Breakfast at 09:00')) // '09:00'
-// console.log(getTime('Breakfast at 09:60, Dinner at 21:00'))    //'21:00'
-// console.log(getTime('Breakfast at 09:59, Dinner at 21:00'))     //'09:59'
+export function isPalindrome(str) {
+    str = str.replace(/[^a-zA-Z]+/g, '').toLowerCase()
+    let new_str = str.split("").reverse().join("")
+    return str == new_str
+}
+
+export function swapCase(str) {
+    return str.replace(/./g, c => c == c.toUpperCase() ? c.toLowerCase() : c.toUpperCase())
+}
+
+
+
+export function countOccurrences(word, letter) {
+    let count = 0
+
+    word = word.toLowerCase()
+    letter = letter.toLowerCase()
+
+    for (let i = 0; i < word.length; i++) {
+        if (word[i] == letter) { count++ }
+    }
+
+    return count
+}
+
+
+export function vowelCount(str) {
+    let arr = str.match(/[aeiou]/gi);
+    return arr === null ? 0 : arr.length;
+
+    // let vowels = /[aeiou]/gi;
+    // let result = str.match(vowels);
+    // let count = result.length;
+    // return count
+}
+
+
+export function alphabetPosition(str) {
+    let arr = []
+    str = str.replace(/[^a-zA-Z]+/g, '').toLowerCase()
+
+    for (let i = 0; i < str.length; i++) {
+        arr.push(str[i].charCodeAt(0) - 96)
+    }
+
+    return arr.join(' ')
+}
