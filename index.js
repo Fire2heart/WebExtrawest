@@ -7,40 +7,38 @@ export function basicOp(operation, a, b,) {
     // else if (operation == '/') { return a / b }
     // else { return 0 }
 
-    let result
+    // let result
     switch (operation) {
         case '+':
-            result = a + b
+            return a + b
             break
         case '-':
-            result = a - b
+            return a - b
             break
         case '*':
-            result = a * b
+            return a * b
             break
         case '/':
-            result = a / b
+            return a / b
             break
-        default: result = 0
+        default: return 0
             break
     }
-    return result
 }
 
 export function StringMerge(first, second, letter) {
     let id = first.indexOf(letter)
     first = first.slice(0, id)
     id = second.indexOf(letter)
-    second = second.slice(id + 1, second.length)
+    second = second.slice(id + 1)
 
     return first + letter + second
 }
 
 export function createPhoneNumber(nums) {
-    let str_nums = nums.map(String)
-    let beg = str_nums.slice(0, 3)
-    let mid = str_nums.slice(3, 6)
-    let end = str_nums.slice(6, str_nums.length)
+    let beg = nums.slice(0, 3)
+    let mid = nums.slice(3, 6)
+    let end = nums.slice(6)
 
     return '(' + beg.join('') + ')' + ' ' + mid.join('') + '-' + end.join('')
 }
@@ -55,8 +53,15 @@ export function getOperands(expression) {
 }
 
 export function getTime(str) {
-    let result = str.match(/(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]/g)
-    return result[0]
+    let result
+    if (result = str.match(/(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]/g)) {
+        return result[0]
+    }
+    else {
+        return ''
+    }
+    // let result = str.match(/(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]/g)
+    // return result[0]
 }
 
 export function isPalindrome(str) {
