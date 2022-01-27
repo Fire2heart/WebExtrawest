@@ -1,4 +1,15 @@
 export function basicOp(operation, a, b,) {
+<<<<<<< HEAD
+=======
+    //let calc = "a + operation + b"
+    //return eval(calc)
+    // if (operation == '+') { return a + b }
+    // else if (operation == '-') { return a - b }
+    // else if (operation == '*') { return a * b }
+    // else if (operation == '/') { return a / b }
+    // else { return 0 }
+
+>>>>>>> ca9e2802571e4c155c8044e13a2c0d48ce98b5f3
     switch (operation) {
         case '+':
             return a + b
@@ -35,10 +46,17 @@ export function createPhoneNumber(nums) {
 }
 
 export function getOperands(expression) {
+<<<<<<< HEAD
     const space = ' '
     const arr = expression.split(space)
     const a = arr[0]
     const b = arr.pop()
+=======
+    let space = ' '
+    const let arr = expression.split(space)
+    let a = arr[0]
+    let b = arr.pop()
+>>>>>>> ca9e2802571e4c155c8044e13a2c0d48ce98b5f3
 
     return 'a: ' + a + ',' + ' b: ' + b
 }
@@ -80,13 +98,21 @@ export function countOccurrences(word, letter) {
 
 
 export function vowelCount(str) {
+<<<<<<< HEAD
     const arr = str.match(/[aeiou]/gi);
+=======
+    const let arr = str.match(/[aeiou]/gi);
+>>>>>>> ca9e2802571e4c155c8044e13a2c0d48ce98b5f3
     return arr === null ? 0 : arr.length;
 }
 
 
 export function alphabetPosition(str) {
+<<<<<<< HEAD
     const arr = []
+=======
+    const let arr = []
+>>>>>>> ca9e2802571e4c155c8044e13a2c0d48ce98b5f3
     str = str.replace(/[^a-zA-Z]+/g, '').toLowerCase()
 
     for (let i = 0; i < str.length; i++) {
