@@ -1,15 +1,4 @@
 export function basicOp(operation, a, b,) {
-<<<<<<< HEAD
-=======
-    //let calc = "a + operation + b"
-    //return eval(calc)
-    // if (operation == '+') { return a + b }
-    // else if (operation == '-') { return a - b }
-    // else if (operation == '*') { return a * b }
-    // else if (operation == '/') { return a / b }
-    // else { return 0 }
-
->>>>>>> ca9e2802571e4c155c8044e13a2c0d48ce98b5f3
     switch (operation) {
         case '+':
             return a + b
@@ -46,17 +35,10 @@ export function createPhoneNumber(nums) {
 }
 
 export function getOperands(expression) {
-<<<<<<< HEAD
     const space = ' '
-    const arr = expression.split(space)
-    const a = arr[0]
-    const b = arr.pop()
-=======
-    let space = ' '
-    const let arr = expression.split(space)
-    let a = arr[0]
-    let b = arr.pop()
->>>>>>> ca9e2802571e4c155c8044e13a2c0d48ce98b5f3
+    const arr_expression = expression.split(space)
+    const a = arr_expression[0]
+    const b = arr_expression.pop()
 
     return 'a: ' + a + ',' + ' b: ' + b
 }
@@ -74,11 +56,11 @@ export function getTime(str) {
 export function isPalindrome(str) {
     str = str.replace(/[^a-zA-Z]+/g, '').toLowerCase()
     let new_str = str.split("").reverse().join("")
-    return str == new_str
+    return str === new_str
 }
 
 export function swapCase(str) {
-    return str.replace(/./g, c => c == c.toUpperCase() ? c.toLowerCase() : c.toUpperCase())
+    return str.replace(/./g, letter => letter === letter.toUpperCase() ? letter.toLowerCase() : letter.toUpperCase())
 }
 
 
@@ -90,7 +72,7 @@ export function countOccurrences(word, letter) {
     letter = letter.toLowerCase()
 
     for (let i = 0; i < word.length; i++) {
-        if (word[i] == letter) { count++ }
+        if (word[i] === letter) { count++ }
     }
 
     return count
@@ -98,26 +80,18 @@ export function countOccurrences(word, letter) {
 
 
 export function vowelCount(str) {
-<<<<<<< HEAD
-    const arr = str.match(/[aeiou]/gi);
-=======
-    const let arr = str.match(/[aeiou]/gi);
->>>>>>> ca9e2802571e4c155c8044e13a2c0d48ce98b5f3
-    return arr === null ? 0 : arr.length;
+    const arr_vowel = str.match(/[aeiou]/gi);
+    return arr_vowel === null ? 0 : arr_vowel.length;
 }
 
 
 export function alphabetPosition(str) {
-<<<<<<< HEAD
-    const arr = []
-=======
-    const let arr = []
->>>>>>> ca9e2802571e4c155c8044e13a2c0d48ce98b5f3
+    const arr_str = []
     str = str.replace(/[^a-zA-Z]+/g, '').toLowerCase()
 
     for (let i = 0; i < str.length; i++) {
-        arr.push(str[i].charCodeAt(0) - 96)
+        arr_str.push(str[i].charCodeAt(0) - 96)
     }
 
-    return arr.join(' ')
+    return arr_str.join(' ')
 }
