@@ -1,4 +1,16 @@
-import { basicOp } from './index'
+import {
+    basicOp,
+    stringMerge,
+    createPhoneNumber,
+    getOperands,
+    getTime,
+    isPalindrome,
+    swapCase,
+    countOccurrences,
+    vowelCount,
+    alphabetPosition,
+} from './index.js';
+
 describe('basicOp', function () {
     test('should return 4 when passed +, 2, 2', function () {
         const result = basicOp('+', 2, 2)
@@ -26,30 +38,28 @@ describe('basicOp', function () {
     })
 })
 
-import { StringMerge } from './index'
-describe('StringMerge', function () {
+describe('stringMerge', function () {
     test('should return held when passed "hello", "world", "l"', function () {
-        const result = StringMerge("hello", "world", "l")
+        const result = stringMerge("hello", "world", "l")
         expect(result).toBe('held')
     })
 
     test('should return codinywhere when passed "coding", "anywhere", "n"', function () {
-        const result = StringMerge("coding", "anywhere", "n")
+        const result = stringMerge("coding", "anywhere", "n")
         expect(result).toBe('codinywhere')
     })
 
     test('should return jasamson when passed "jason", "samson", "s"', function () {
-        const result = StringMerge("jason", "samson", "s")
+        const result = stringMerge("jason", "samson", "s")
         expect(result).toBe('jasamson')
     })
 
     test('should return wondeople when passed "wonderful", "people", "e"', function () {
-        const result = StringMerge("wonderful", "people", "e")
+        const result = stringMerge("wonderful", "people", "e")
         expect(result).toBe('wondeople')
     })
 })
 
-import { createPhoneNumber } from './index'
 describe('createPhoneNumber', function () {
     test('should return "(123) 456-7890" when passed [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]', function () {
         const result = createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
@@ -57,7 +67,6 @@ describe('createPhoneNumber', function () {
     })
 })
 
-import { getOperands } from './index'
 describe('getOperands', function () {
     test('should return "a: 1, b: 2" when passed "1 + 2"', function () {
         const result = getOperands('1 + 2')
@@ -80,7 +89,6 @@ describe('getOperands', function () {
     })
 })
 
-import { getTime } from './index'
 describe('getTime', function () {
     test('should return "09:00" when passed "Breakfast at 09:00"', function () {
         const result = getTime('Breakfast at 09:00')
@@ -96,9 +104,13 @@ describe('getTime', function () {
         const result = getTime('Breakfast at 09:59, Dinner at 21:00')
         expect(result).toBe('09:59')
     })
+
+    test('should return "" when passed "Breakfast at Dinner at"', function () {
+        const result = getTime('Breakfast at Dinner at')
+        expect(result).toBe('')
+    })
 })
 
-import { isPalindrome } from './index'
 describe('isPalindrome', function () {
     test('should return true when passed "Eva, can I see bees in a cave?"', function () {
         const result = isPalindrome('Eva, can I see bees in a cave?')
@@ -116,7 +128,6 @@ describe('isPalindrome', function () {
     })
 })
 
-import { swapCase } from './index'
 describe('swapCase', function () {
     test('should return AbC when passed "aBc"', function () {
         const result = swapCase('aBc')
@@ -134,7 +145,6 @@ describe('swapCase', function () {
     })
 })
 
-import { countOccurrences } from './index'
 describe('countOccurrences', function () {
     test('should return 2 when passed "ability", "i"', function () {
         const result = countOccurrences('ability', 'i')
@@ -152,7 +162,6 @@ describe('countOccurrences', function () {
     })
 })
 
-import { vowelCount } from './index'
 describe('vowelCount', function () {
     test('should return 5 when passed "abracadabra"', function () {
         const result = vowelCount('abracadabra')
@@ -175,7 +184,6 @@ describe('vowelCount', function () {
     })
 })
 
-import { alphabetPosition } from './index'
 describe('alphabetPosition', function () {
     test('should return 5 when passed "The sunset sets at twelve o`clock."', function () {
         const result = alphabetPosition('The sunset sets at twelve o`clock.')

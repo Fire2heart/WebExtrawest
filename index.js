@@ -1,13 +1,4 @@
 export function basicOp(operation, a, b,) {
-    //let calc = "a + operation + b"
-    //return eval(calc)
-    // if (operation == '+') { return a + b }
-    // else if (operation == '-') { return a - b }
-    // else if (operation == '*') { return a * b }
-    // else if (operation == '/') { return a / b }
-    // else { return 0 }
-
-    // let result
     switch (operation) {
         case '+':
             return a + b
@@ -26,7 +17,7 @@ export function basicOp(operation, a, b,) {
     }
 }
 
-export function StringMerge(first, second, letter) {
+export function stringMerge(first, second, letter) {
     let id = first.indexOf(letter)
     first = first.slice(0, id)
     id = second.indexOf(letter)
@@ -36,18 +27,18 @@ export function StringMerge(first, second, letter) {
 }
 
 export function createPhoneNumber(nums) {
-    let beg = nums.slice(0, 3)
-    let mid = nums.slice(3, 6)
-    let end = nums.slice(6)
+    const beg = nums.slice(0, 3)
+    const mid = nums.slice(3, 6)
+    const end = nums.slice(6)
 
     return '(' + beg.join('') + ')' + ' ' + mid.join('') + '-' + end.join('')
 }
 
 export function getOperands(expression) {
-    let space = ' '
-    let arr = expression.split(space)
-    let a = arr[0]
-    let b = arr.pop()
+    const space = ' '
+    const arr = expression.split(space)
+    const a = arr[0]
+    const b = arr.pop()
 
     return 'a: ' + a + ',' + ' b: ' + b
 }
@@ -60,8 +51,6 @@ export function getTime(str) {
     else {
         return ''
     }
-    // let result = str.match(/(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]/g)
-    // return result[0]
 }
 
 export function isPalindrome(str) {
@@ -91,18 +80,13 @@ export function countOccurrences(word, letter) {
 
 
 export function vowelCount(str) {
-    let arr = str.match(/[aeiou]/gi);
+    const arr = str.match(/[aeiou]/gi);
     return arr === null ? 0 : arr.length;
-
-    // let vowels = /[aeiou]/gi;
-    // let result = str.match(vowels);
-    // let count = result.length;
-    // return count
 }
 
 
 export function alphabetPosition(str) {
-    let arr = []
+    const arr = []
     str = str.replace(/[^a-zA-Z]+/g, '').toLowerCase()
 
     for (let i = 0; i < str.length; i++) {
