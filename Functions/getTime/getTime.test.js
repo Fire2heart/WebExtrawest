@@ -20,4 +20,9 @@ describe('getTime', function () {
         const result = getTime('Breakfast at Dinner at')
         expect(result).toBe('')
     })
+
+    test('should return "" when passed "When pass string Breakfast at 09:69, Dinner at 25:00, then get empty string"', function () {
+        const result = getTime('When pass string Breakfast at 09:69, Dinner at 25:00, then get empty string')
+        expect(result).toBe('')
+    })
 })
