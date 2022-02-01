@@ -9,7 +9,7 @@ describe('transformState', function () {
                 { operation: 'addProperties', properties: { foo: 'bar', name: 'Jim' } }
             ]
         )
-        expect(result).toBe({ foo: 'bar', name: 'Jim' })
+        expect(result).toStrictEqual({ foo: 'bar', name: 'Jim' })
     })
 
     test('should work with a long list of operations', function () {
@@ -18,7 +18,7 @@ describe('transformState', function () {
                 { operation: 'addProperties', properties: { name: 'Jim' } },
             ]
         )
-        expect(result).toBe({ foo: 'bar', name: 'Jim' })
+        expect(result).toStrictEqual({ name: 'Jim' })
     })
 
     test('should work with a long list of operations', function () {
@@ -27,7 +27,7 @@ describe('transformState', function () {
                 { operation: 'clear' },
             ]
         )
-        expect(result).toBe({ foo: 'bar', name: 'Jim' })
+        expect(result).toStrictEqual({})
     })
 
     test('should work with a long list of operations', function () {
@@ -43,6 +43,6 @@ describe('transformState', function () {
                 { operation: 'removeProperties', properties: ['name', 'hello'] }
             ]
         )
-        expect(result).toBe({ foo: 'bar', name: 'Jim' })
+        expect(result).toStrictEqual({ foo: 'bar' })
     })
 })
