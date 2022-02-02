@@ -4,7 +4,7 @@ export const createUrl = (template, params) => {
 			let result = elem;
 
 			if (elem.startsWith('{') && elem.endsWith('}')) {
-				result = params.hasOwnProperty(elem.slice(1, -1)) ? params[elem.slice(1, -1)] : undefined;
+				result = params.hasOwnProperty(elem.slice(1, -1)) ? params[elem.slice(1, -1)] : 'undefined';
 			}
 
 			return result;

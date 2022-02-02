@@ -10,7 +10,7 @@ describe('createUrl', () => {
 	test('should return /api/undefined when passed /api/{id}, {name: Petya}', () => {
 		const result = createUrl('/api/{id}', { name: 'Petya' });
 
-		expect(result).toBe('/api/');
+		expect(result).toBe('/api/undefined');
 	});
 
 	test('should return /api/items/0 when passed /api/{list}/{id}, {list: items, id: 0}', () => {

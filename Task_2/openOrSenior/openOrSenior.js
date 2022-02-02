@@ -1,6 +1,8 @@
 export const openOrSenior = (arr) => {
+	const EXP = 15;
+	const AGE = 40;
 	const newArr = arr.map(([age, exp]) => {
-		if (age > 39 && exp >= 15) {
+		if (age >= AGE && exp >= EXP) {
 			return 'Senior';
 		}
 
