@@ -4,7 +4,8 @@
   "description": "First project",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "jest": {
     "verbose": true

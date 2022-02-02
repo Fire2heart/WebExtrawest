@@ -1,7 +1,11 @@
-export function invertColor(hex) {
-    if (hex.length === 7 && hex[0] === '#') {
-        hex = hex.slice(1)
-        return '#' + (Number(`0x${hex}`) ^ 0xFFFFFF).toString(16).toLocaleLowerCase()
-    }
-    return 'Error'
-}
+export const invertColor = (hex) => {
+	let newHex = hex;
+
+	if (newHex.length === 7 && newHex[0] === '#') {
+		newHex = newHex.slice(1);
+
+		return '#' + (Number(`0x${newHex}`) ^ 0xFFFFFF).toString(16).toLocaleLowerCase();
+	}
+
+	return 'Error';
+};

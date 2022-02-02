@@ -1,48 +1,78 @@
-import { transformState } from './transformState'
+import { transformState } from './transformState';
 
-describe('transformState', function () {
-    test('should work with a long list of operations', function () {
-        const result = transformState({ foo: 'bar', name: 'Jim', another: 'one' },
-            [
-                { operation: 'addProperties', properties: { yet: 'another property' } },
-                { operation: 'clear' },
-                { operation: 'addProperties', properties: { foo: 'bar', name: 'Jim' } }
-            ]
-        )
-        expect(result).toStrictEqual({ foo: 'bar', name: 'Jim' })
-    })
+describe('transformState', () => {
+	test('should work with a long list of operations', () => {
+		const result = transformState({
+			foo: 'bar', name: 'Jim', another: 'one',
+		},
+			[
+				{
+					operation: 'addProperties', properties: { yet: 'another property' },
+				},
+				{ operation: 'clear' },
+				{
+					operation: 'addProperties', properties: {
+						foo: 'bar', name: 'Jim',
+					},
+				},
+			],
+		);
 
-    test('should work with a long list of operations', function () {
-        const result = transformState({},
-            [
-                { operation: 'addProperties', properties: { name: 'Jim' } },
-            ]
-        )
-        expect(result).toStrictEqual({ name: 'Jim' })
-    })
+		expect(result).toStrictEqual({
+			foo: 'bar', name: 'Jim',
+		});
+	});
 
-    test('should work with a long list of operations', function () {
-        const result = transformState({ foo: 'bar', name: 'Jim', another: 'one' },
-            [
-                { operation: 'clear' },
-            ]
-        )
-        expect(result).toStrictEqual({})
-    })
+	test('should work with a long list of operations', () => {
+		const result = transformState({},
+			[
+				{
+					operation: 'addProperties', properties: { name: 'Jim' },
+				},
+			],
+		);
 
-    test('should work with a long list of operations', function () {
-        const result = transformState({ foo: 'bar', name: 'Jim', another: 'one' },
-            [
-                { operation: 'removeProperties', properties: ['another'] },
-                { operation: 'clear' },
-                { operation: 'clear' },
-                { operation: 'clear' },
-                { operation: 'addProperties', properties: { yet: 'another property' } },
-                { operation: 'clear' },
-                { operation: 'addProperties', properties: { foo: 'bar', name: 'Jim' } },
-                { operation: 'removeProperties', properties: ['name', 'hello'] }
-            ]
-        )
-        expect(result).toStrictEqual({ foo: 'bar' })
-    })
-})
+		expect(result).toStrictEqual({ name: 'Jim' });
+	});
+
+	test('should work with a long list of operations', () => {
+		const result = transformState({
+			foo: 'bar', name: 'Jim', another: 'one',
+		},
+			[
+				{ operation: 'clear' },
+			],
+		);
+
+		expect(result).toStrictEqual({});
+	});
+
+	test('should work with a long list of operations', () => {
+		const result = transformState({
+			foo: 'bar', name: 'Jim', another: 'one',
+		},
+			[
+				{
+					operation: 'removeProperties', properties: ['another'],
+				},
+				{ operation: 'clear' },
+				{ operation: 'clear' },
+				{ operation: 'clear' },
+				{
+					operation: 'addProperties', properties: { yet: 'another property' },
+				},
+				{ operation: 'clear' },
+				{
+					operation: 'addProperties', properties: {
+						foo: 'bar', name: 'Jim',
+					},
+				},
+				{
+					operation: 'removeProperties', properties: ['name', 'hello'],
+				},
+			],
+		);
+
+		expect(result).toStrictEqual({ foo: 'bar' });
+	});
+});
