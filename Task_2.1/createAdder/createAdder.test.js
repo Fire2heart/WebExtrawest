@@ -1,15 +1,16 @@
 import { createAdder } from './createAdder';
 
-describe('calculateRentalCost', () => {
+describe('createAdder', () => {
+	const adder1 = createAdder();
+	const adder2 = createAdder(100);
+
 	test('should return 0  ', () => {
-		const adder1 = createAdder();
 		const result = adder1();
 
 		expect(result).toBe(0);
 	});
 
 	test('should return 30  ', () => {
-		const adder1 = createAdder();
 
 		adder1();
 
@@ -19,10 +20,8 @@ describe('calculateRentalCost', () => {
 	});
 
 	test('should return 100  ', () => {
-		const adder1 = createAdder();
 
 		adder1();
-		adder1(10, 20);
 
 		const result = adder1(30, 40);
 
@@ -30,7 +29,6 @@ describe('calculateRentalCost', () => {
 	});
 
 	test('should return 110  ', () => {
-		const adder2 = createAdder(100);
 
 		const result = adder2(10);
 
@@ -38,9 +36,6 @@ describe('calculateRentalCost', () => {
 	});
 
 	test('should return 200  ', () => {
-		const adder2 = createAdder(100);
-
-		adder2(10);
 
 		const result = adder2(20, 30, 40);
 
@@ -48,10 +43,6 @@ describe('calculateRentalCost', () => {
 	});
 
 	test('should return 200  ', () => {
-		const adder2 = createAdder(100);
-
-		adder2(10);
-		adder2(20, 30, 40);
 
 		const result = adder2();
 

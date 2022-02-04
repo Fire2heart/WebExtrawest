@@ -13,3 +13,4 @@ export const createAdder = (startValue) => {
 		return sum;
 	};
 };
+

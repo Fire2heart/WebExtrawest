@@ -1,6 +1,6 @@
 import { frankenSplice } from './frankenSplice';
 
-describe('calculateRentalCost', () => {
+describe('frankenSplice', () => {
 	test('should return [4, 1, 2, 3, 5]	when passed [1, 2, 3], [4, 5], 1', () => {
 		const result = frankenSplice([1, 2, 3], [4, 5], 1);
 

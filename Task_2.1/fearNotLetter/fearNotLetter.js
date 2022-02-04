@@ -4,4 +4,6 @@ export const fearNotLetter = (str) => {
 			return String.fromCharCode(str.charCodeAt(i) + 1);
 		}
 	}
+
+	return undefined;
 };
