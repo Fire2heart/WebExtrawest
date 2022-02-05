@@ -1,56 +1,33 @@
-// const transformState = (state, transform) => {
-// 	const operation = {
-// 		add: 'addProperties', remove: 'removeProperties', clear: 'clear',
-// 	};
+export const transformState = (state, transform) => {
+  const operationArr = {
+    add: 'addProperties', remove: 'removeProperties', clear: 'clear',
+  };
+  let currentState = {...state};
+  const result = transform.map((element) => {
 
-// 	const result = transform.map((element) => {
-// 		switch (element.operation) {
+    switch (element.operation) {
 
-// 			case operation.add:
-// 				const newObj = {
-// 					...state, ...element.properties,
-// 				};
+      case operationArr.add:
+        Object.keys(element.properties).forEach(function(key) {
+          currentState[key] = element.properties[key];
+        });
 
-// 				return newObj;
+        return {...currentState};
 
-// 			// case operation.remove:
-// 			// 	const newObj = element.properties.reduce((result, currentKey) => {
+      case operationArr.remove:
+        
+        element.properties.forEach((item) => {
+          delete currentState[item];
+        });
 
-// 			// 		return result;
-// 			// 	}, {})
-// 		}
-// 	});
+        return {...currentState};
 
-// 	return result;
-// };
+      case operationArr.clear:
+        currentState = {};
 
+        return {};
+    }
+  });
 
-const state = {
-	foo: 'bar', bar: 'foo',
+  return result;
 };
-const transforms = {
-	operation: 'addProperties', properties: { name: 'Jim' },
-};
-
-const operation = {
-	add: 'addProperties', remove: 'removeProperties', clear: 'clear',
-};
-
-const result = transforms.map((element) => {
-	if (element.properties === operation.add) {
-		const obj = {
-			...state, ...element.properties,
-		};
-
-		return obj;
-	}
-
-	return result;
-});
-
-// console.log(result)
-
-
-// console.log(transformState({ foo: 'bar', bar: 'foo' }, {
-// 	operation: 'addProperties', properties: { name: 'Jim' },
-// }));

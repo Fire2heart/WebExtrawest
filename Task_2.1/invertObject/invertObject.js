@@ -1,15 +1,20 @@
 export const invertObject = (obj) => {
-	const result = {};
+  const  result = {};
 
-	Object.keys(obj).forEach(key => {
-		for (let i = 0; i < Object.values(obj).length; i++) {
-			if (Array.isArray(Object.values(obj)[i])) {
-				return null;
-			}
-			result[obj[key]] = key;
-		}
-	});
+  try {
+    Object.keys(obj).forEach(key => {
+      if (result.hasOwnProperty(obj[key])) {
+        throw 'Key already exist';
+      } 
+      result[obj[key]] = key;
+    });
+	
+  } catch (error) {
+    if( error === 'Key already exist' ) {
+      return null;
+    }
+  }
 
-
-	return result;
+ 
+  return result;
 };
