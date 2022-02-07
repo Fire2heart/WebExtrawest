@@ -1,4 +1,4 @@
-import { transformState } from './transformState';
+import { transformStateWithClones } from './transformStateWithClones';
 
 const state1 =  {
   foo: 'bar', bar: 'foo',
@@ -68,9 +68,9 @@ const result3 = [
   {name: 'Jim'},
 ];
 
-describe('transformState', () => {
+describe('transformStateWithClones', () => {
   test('should return massive of objects', () => {
-    const result = transformState(state1, transform1);
+    const result = transformStateWithClones(state1, transform1);
 
     expect(result).toStrictEqual(result1);
 
@@ -80,7 +80,7 @@ describe('transformState', () => {
   });
 
   test('should return massive of objects', () => {
-    const result = transformState(state2, transform2);
+    const result = transformStateWithClones(state2, transform2);
 
     expect(result).toStrictEqual(result2);
 
@@ -90,7 +90,7 @@ describe('transformState', () => {
   });
 
   test('should return massive of objects', () => {
-    const result = transformState(state3, transform3);
+    const result = transformStateWithClones(state3, transform3);
 
     expect(result).toStrictEqual(result3);
 

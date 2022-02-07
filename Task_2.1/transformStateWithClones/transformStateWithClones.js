@@ -1,5 +1,5 @@
-export const transformState = (state, transform) => {
-  const operationArr = {
+export const transformStateWithClones = (state, transform) => {
+  const operationType = {
     add: 'addProperties', remove: 'removeProperties', clear: 'clear',
   };
   let currentState = {...state};
@@ -7,14 +7,14 @@ export const transformState = (state, transform) => {
 
     switch (element.operation) {
 
-      case operationArr.add:
+      case operationType.add:
         Object.keys(element.properties).forEach(function(key) {
           currentState[key] = element.properties[key];
         });
 
         return {...currentState};
 
-      case operationArr.remove:
+      case operationType.remove:
         
         element.properties.forEach((item) => {
           delete currentState[item];
@@ -22,7 +22,7 @@ export const transformState = (state, transform) => {
 
         return {...currentState};
 
-      case operationArr.clear:
+      case operationType.clear:
         currentState = {};
 
         return {};
