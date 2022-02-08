@@ -1,4 +1,12 @@
 export const invertObject = (obj) => {
+  try {
+    if(typeof obj !== 'object'){
+      throw 'Wrong input';
+    }
+  } catch (error) {
+    return error;
+  }
+
   const  result = {};
 
   try {

@@ -1,9 +1,18 @@
 export const fearNotLetter = (str) => {
-	for (let i = 0; i < str.length - 1; i++) {
-		if (str.charCodeAt(i + 1) - str.charCodeAt(i) != 1) {
-			return String.fromCharCode(str.charCodeAt(i) + 1);
-		}
-	}
+  try {
+    if(typeof str !== 'string'){
+      throw 'Wrong type';
+    }
+		
+  } catch (error) {
+    return error;
+  }
 
-	return undefined;
+  for (let i = 0; i < str.length - 1; i++) {
+    if (str.charCodeAt(i + 1) - str.charCodeAt(i) != 1) {
+      return String.fromCharCode(str.charCodeAt(i) + 1);
+    }
+  }
+
+  return undefined;
 };

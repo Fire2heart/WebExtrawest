@@ -1,11 +1,11 @@
 export const createPrevArgSaver = () => {
-	let previousValue;
+  let previousValue;
 
-	return (nowValue) => {
-		const result = previousValue;
+  return (nowValue) => {
+    const result = previousValue;
 
-		previousValue = nowValue;
+    previousValue = nowValue;
 
-		return result;
-	};
+    return result;
+  };
 };
